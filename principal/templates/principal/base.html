@@ -2,39 +2,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{% block title %}Vortex MMA{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'principal/css/styles.css' %}" />
-  <link rel="icon" type="image/png" href="{% static 'principal/img/favicon.jpeg' %}">
-  </head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Vortex MMA{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'principal/css/styles.css' %}" />
+    <link rel="icon" type="image/png" href="{% static 'principal/img/favicon.jpeg' %}" />
+</head>
+<body class="flex-body">
+    <header>
+        <div class="contenedor-header">
+            <img src="{% static 'principal/img/logo.jpeg' %}" alt="Logo del club" class="logo" />
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}activo{% endif %}">Inicio</a></li>
+                    <li><a href="{% url 'disciplinas' %}" class="{% if request.resolver_match.url_name == 'disciplinas' %}activo{% endif %}">Disciplinas</a></li>
+                    <li><a href="{% url 'entrenadores' %}" class="{% if request.resolver_match.url_name == 'entrenadores' %}activo{% endif %}">Entrenadores</a></li>
+                    <li><a href="{% url 'blog' %}" class="{% if request.resolver_match.url_name == 'blog' %}activo{% endif %}">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <header>
-    <div class="contenedor-header">
-      <img src="{% static 'principal/img/logo.jpeg' %}" alt="Logo del club" class="logo"/>
-      <nav>
-        <ul>
-          <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}activo{% endif %}">Inicio</a></li>
-          <li><a href="{% url 'disciplinas' %}" class="{% if request.resolver_match.url_name == 'disciplinas' %}activo{% endif %}">Disciplinas</a></li>
-          <li><a href="{% url 'entrenadores' %}" class="{% if request.resolver_match.url_name == 'entrenadores' %}activo{% endif %}">Entrenadores</a></li>
-          <li><a href="{% url 'blog' %}" class="{% if request.resolver_match.url_name == 'blog' %}activo{% endif %}">Blog</a></li>
-          </ul>
-      </nav>
-    </div>
-  </header>
+    <main class="flex-grow-main">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 By Chriss "La Makina" Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 By Chriss "La Makina" Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script src="{% static 'principal/js/scripts.js' %}"></script>
+    <script src="{% static 'principal/js/scripts.js' %}"></script>
 </body>
 </html>
