@@ -1,0 +1,20 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.titulo }}{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <div class="detalle-encabezado">
+        <h2>{{ post.titulo }}</h2>
+        <p class="meta">{{ post.fecha_publicacion|date:"F j, Y" }}</p>
+    </div>
+    <div class="detalle-contenido">
+        {% if post.imagen %}
+            <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="detalle-img" />
+        {% endif %}
+        <p>{{ post.contenido|linebreaks }}</p>
+    </div>
+    <a href="{% url 'blog' %}" class="btn">Volver al blog</a>
+</section>
+{% endblock %}

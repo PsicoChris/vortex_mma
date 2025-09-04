@@ -1,0 +1,52 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}Vortex MMA - Inicio{% endblock %}
+
+{% block content %}
+<section class="banner">
+    <img src="{% static 'principal/img/banner.jpeg' %}" alt="Banner principal" />
+    <div class="texto-banner">
+      <h1>Vortex MMA</h1>
+      <p>Entrena. Mejora. Supérate.</p>
+    </div>
+</section>
+
+<section class="seccion">
+    <h2>Disciplinas</h2>
+    <div class="grid">
+        {% for disciplina in disciplinas %}
+        <div class="clase">
+            <a href="{% url 'disciplina_detalle' disciplina.id %}">
+                {% if disciplina.foto %}
+                    <img src="{{ disciplina.foto.url }}" alt="{{ disciplina.nombre }}" />
+                {% endif %}
+                <h3>{{ disciplina.nombre }}</h3>
+            </a>
+            <p>{{ disciplina.descripcion }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="seccion">
+    <h2>Últimos del Blog</h2>
+    <div class="grid">
+        {% for post in posts %}
+        <article class="blog-home">
+            <a href="{% url 'post_detalle' post.id %}">
+                {% if post.imagen %}
+                    <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" />
+                {% endif %}
+                <h3>{{ post.titulo }}</h3>
+            </a>
+            <p>{{ post.contenido|truncatewords:20 }}</p>
+        </article>
+        {% empty %}
+        <p>No hay publicaciones en el blog todavía.</p>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

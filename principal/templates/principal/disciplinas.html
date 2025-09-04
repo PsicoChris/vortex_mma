@@ -1,0 +1,23 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}Vortex MMA - Disciplinas{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <h2>Disciplinas de Vortex MMA</h2>
+    <div class="grid">
+        {% for disciplina in disciplinas %}
+        <div class="clase">
+            <a href="{% url 'disciplina_detalle' disciplina.id %}">
+                {% if disciplina.foto %}
+                    <img src="{{ disciplina.foto.url }}" alt="{{ disciplina.nombre }}" />
+                {% endif %}
+                <h3>{{ disciplina.nombre }}</h3>
+            </a>
+            <p>{{ disciplina.descripcion }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,387 @@
+/* RESET + FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --color-primario: #0b253a;
+  --color-secundario: #848c9c;
+  --color-terciario: #1c3349;
+  --color-detalles: #d9e1e6;
+  --color-texto-claro: #F0F0F0;
+  --color-texto-oscuro: #0A0A0A;
+  --fuente-titulo: 'Oswald', sans-serif;
+  --fuente-cuerpo: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  line-height: 1.6;
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+}
+
+/* ELEMENTOS GENERALES */
+
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #cc0000;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-texto-claro);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-primario);
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* CONTENEDORES COMUNES */
+.contenedor-header,
+.seccion,
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER + NAV */
+header {
+  background-color: var(--color-terciario);
+  color: var(--color-texto-claro);
+  padding: 15px 0;
+  border-bottom: 3px solid var(--color-primario);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.contenedor-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--color-primario);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: var(--color-texto-claro);
+  font-size: 1.1em;
+  position: relative;
+  padding: 5px 0;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: var(--color-primario);
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+nav ul li a.activo::after {
+  width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a.activo {
+  color: var(--color-primario);
+}
+
+/* BANNER */
+.banner {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-secundario);
+}
+
+.banner img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.6);
+}
+
+.texto-banner {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.texto-banner h1 {
+  font-size: 2em;
+}
+
+.texto-banner p {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+/* SECCIONES GENERALES */
+.seccion {
+  padding: 40px 20px;
+  background-color: var(--color-secundario);
+  color: var(--color-texto-claro);
+}
+.seccion:nth-child(odd) {
+  background-color: var(--color-terciario);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* TARJETAS */
+.clase,
+.blog-home article,
+.producto,
+.luchador,
+.post {
+  background-color: var(--color-terciario);
+  border: 1px solid var(--color-primario);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clase:hover,
+.blog-home article:hover,
+.producto:hover,
+.luchador:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+}
+
+.clase img,
+.blog-home article img,
+.producto img,
+.luchador img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+h3 a {
+  color: var(--color-primario);
+}
+h3 a:hover,
+h3 a:focus {
+  color: #cc0000;
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--color-terciario);
+  color: var(--color-texto-claro);
+  padding: 30px 0;
+  text-align: center;
+  border-top: 3px solid var(--color-primario);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-content p {
+  font-size: 0.9em;
+}
+
+.redes a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.redes img {
+  height: 30px;
+  filter: invert(100%);
+  transition: filter 0.3s ease;
+}
+
+.redes img:hover,
+.redes img:focus {
+  filter: invert(0%) sepia(100%) saturate(7000%) hue-rotate(0deg);
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA PÁGINAS DETALLE --- */
+.detalle-encabezado {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.detalle-encabezado h2 {
+  border-bottom: 2px solid var(--color-primario);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.detalle-contenido {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+}
+
+.detalle-contenido p {
+  color: var(--color-detalles);
+  text-align: justify;
+}
+
+.detalle-img {
+  display: block;
+  margin: 0 auto 30px auto;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.meta {
+  font-size: 0.9em;
+  color: var(--color-texto-claro);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Botón volver al blog */
+.btn {
+  display: block;
+  width: 200px;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}
+
+/* =========================
+   DESKTOP BREAKPOINTS
+   ========================= */
+@media (min-width: 768px) {
+  .contenedor-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  nav ul {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .banner {
+    height: 400px;
+  }
+  .texto-banner h1 {
+    font-size: 2.5em;
+  }
+  .texto-banner p {
+    font-size: 1.3em;
+  }
+  h2 {
+    font-size: 2.2em;
+  }
+  .logo {
+    height: 70px;
+    width: 70px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner {
+    height: 600px;
+  }
+  .texto-banner h1 {
+    font-size: 4em;
+  }
+  .texto-banner p {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 2.5em;
+  }
+}

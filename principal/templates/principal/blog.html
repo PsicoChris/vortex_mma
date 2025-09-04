@@ -1,0 +1,25 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}Vortex MMA - Blog{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <h2>Últimas Publicaciones</h2>
+    <div class="grid">
+        {% for post in posts %}
+        <article class="blog-home">
+            <a href="{% url 'post_detalle' post.id %}">
+                {% if post.imagen %}
+                    <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" />
+                {% endif %}
+                <h3>{{ post.titulo }}</h3>
+            </a>
+            <p>{{ post.contenido|truncatewords:20 }}</p>
+        </article>
+        {% empty %}
+        <p>No hay publicaciones en el blog todavía.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

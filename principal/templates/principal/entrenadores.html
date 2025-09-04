@@ -1,0 +1,22 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}Vortex MMA - Entrenadores{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <h2>Nuestros Entrenadores</h2>
+    <div class="grid">
+        {% for entrenador in entrenadores %}
+        <div class="luchador">
+            {% if entrenador.foto %}
+                <img src="{{ entrenador.foto.url }}" alt="{{ entrenador.nombre }}" />
+            {% endif %}
+            <h3>{{ entrenador.nombre }}</h3>
+            <p>{{ entrenador.rol }}</p>
+            <p>{{ entrenador.biografia }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block title %}{{ disciplina.nombre }}{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <div class="detalle-encabezado">
+        <h2>{{ disciplina.nombre }}</h2>
+    </div>
+    <div class="detalle-contenido">
+        {% if disciplina.foto %}
+            <img src="{{ disciplina.foto.url }}" alt="{{ disciplina.nombre }}" class="detalle-img" />
+        {% endif %}
+        <p>{{ disciplina.descripcion }}</p>
+    </div>
+</section>
+{% endblock %}
