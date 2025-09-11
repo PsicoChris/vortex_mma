@@ -9,13 +9,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s8kngph*r4#q*5mj=$@@$pm33(pae@)rw!l(6^x!5*5-q1)*=r'
+# La SECRET_KEY no debe estar en tu código. Es un riesgo de seguridad.
+# La leeremos desde una variable de entorno en PythonAnywhere.
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-s8kngph*r4#q*5mj=$@@$pm33(pae@)rw!l(6^x!5*5-q1)*=r")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# En producción, DEBUG debe ser False.
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# Esta es la URL de tu sitio en PythonAnywhere.
+ALLOWED_HOSTS = ['Chrislamakina404.pythonanywhere.com']
 
 
 # Application definition
@@ -32,7 +34,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # Deshabilitado para PythonAnywhere
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -46,7 +48,7 @@ ROOT_URLCONF = 'vortex.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'principal/templates')], # Agregado para que Django encuentre tus templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,18 +66,12 @@ WSGI_APPLICATION = 'vortex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Configuración de la base de datos
-DATABASE_URL = os.environ.get("DATABASE_URL")
-if DATABASE_URL:
-    DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL)
-    }
-else:
-    # Usa SQLite en desarrollo si la variable de entorno no existe
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+# Configuración de la base de datos para usar SQLite en PythonAnywhere.
+# NO USES DJANGO_DB_URL, ya que la base de datos se maneja localmente.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -130,4 +126,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
