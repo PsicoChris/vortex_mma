@@ -13,10 +13,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-s8kngph*r4#q*5mj=$@@$pm33(pae@)rw!l(6^x!5*5-q1)*=r")
 
 # En producción, DEBUG debe ser False.
+#DEBUG = True
 DEBUG = False
 
 # Esta es la URL de tu sitio en PythonAnywhere.
 ALLOWED_HOSTS = ['Chrislamakina404.pythonanywhere.com']
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition

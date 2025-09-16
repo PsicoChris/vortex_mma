@@ -7,8 +7,8 @@
 <section class="banner">
     <img src="{% static 'principal/img/banner.jpeg' %}" alt="Banner principal" />
     <div class="texto-banner">
-      <h1>Vortex MMA</h1>
-      <p>Entrena. Mejora. Supérate.</p>
+        <h1>Vortex MMA</h1>
+        <p>Entrena. Mejora. Supérate.</p>
     </div>
 </section>
 
@@ -23,7 +23,10 @@
                 {% endif %}
                 <h3>{{ disciplina.nombre }}</h3>
             </a>
-            <p>{{ disciplina.descripcion }}</p>
+            
+            <p>{{ disciplina.descripcion|truncatewords_html:30|safe }}</p>
+            <a href="{% url 'disciplina_detalle' disciplina.id %}" class="leer-mas">Leer más...</a>
+
         </div>
         {% endfor %}
     </div>
@@ -47,6 +50,4 @@
         {% endfor %}
     </div>
 </section>
-
-
 {% endblock %}

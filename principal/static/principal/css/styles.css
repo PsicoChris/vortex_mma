@@ -213,9 +213,9 @@ nav ul li a.activo {
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
-  padding-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px; /* Agregado para el margen */
 }
 
 .clase:hover,
@@ -223,7 +223,7 @@ nav ul li a.activo {
 .producto:hover,
 .luchador:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .clase img,
@@ -234,6 +234,23 @@ nav ul li a.activo {
   object-fit: cover;
   width: 100%;
   margin-bottom: 15px;
+}
+
+/* Estilos para el texto y los enlaces dentro de las tarjetas */
+.clase p,
+.blog-home article p {
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Estilo para el enlace "Leer más..." */
+.leer-mas {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--color-primario);
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 h3 a {
@@ -310,7 +327,7 @@ footer {
   max-height: 400px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .meta {
@@ -340,8 +357,8 @@ footer {
 }
 
 /* =========================
-   DESKTOP BREAKPOINTS
-   ========================= */
+    DESKTOP BREAKPOINTS
+    ========================= */
 @media (min-width: 768px) {
   .contenedor-header {
     flex-direction: row;
@@ -394,4 +411,26 @@ footer {
 
 .flex-grow-main {
     flex-grow: 1;
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-flotante {
+    position: fixed; /* Mantiene el botón en la misma posición al hacer scroll */
+    right: 20px; /* Distancia desde el borde derecho */
+    bottom: 20px; /* Distancia desde el borde inferior */
+    z-index: 999; /* Asegura que el botón esté siempre encima de otros elementos */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Altura del botón */
+    border-radius: 50%; /* Lo hace circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para que destaque */
+    transition: transform 0.3s ease; /* Efecto de transición al pasar el cursor */
+}
+
+.whatsapp-flotante img {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1); /* Agranda el botón al pasar el cursor */
 }
