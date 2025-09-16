@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Disciplina, Entrenador, Post
 
 def home(request):
-    disciplinas = Disciplina.objects.all()
-    posts = Post.objects.order_by('-fecha_publicacion')[:2] # Obtenemos los 2 posts más recientes
+    disciplinas = Disciplina.objects.order_by('-fecha_creacion')[:3]
+    posts = Post.objects.order_by('-fecha_publicacion')[:2]
     return render(request, 'principal/home.html', {'disciplinas': disciplinas, 'posts': posts})
 
 def disciplinas(request):
