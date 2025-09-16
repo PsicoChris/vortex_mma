@@ -12,13 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # La leeremos desde una variable de entorno en PythonAnywhere.
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-s8kngph*r4#q*5mj=$@@$pm33(pae@)rw!l(6^x!5*5-q1)*=r")
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-=======
 # En producción, DEBUG debe ser False.
 DEBUG = True
 #DEBUG = False
@@ -26,16 +19,9 @@ DEBUG = True
 # Esta es la URL de tu sitio en PythonAnywhere.
 #ALLOWED_HOSTS = ['Chrislamakina404.pythonanywhere.com']
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
->>>>>>> Stashed changes
-=======
-# En producción, DEBUG debe ser False.
-#DEBUG = True
-DEBUG = False
 
-# Esta es la URL de tu sitio en PythonAnywhere.
-ALLOWED_HOSTS = ['Chrislamakina404.pythonanywhere.com']
-#ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
->>>>>>> 249f1da42349382fc163a0b9e179df5a7617da89
+
+
 
 
 # Application definition
